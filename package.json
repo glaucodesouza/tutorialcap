@@ -7,9 +7,10 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^5",
+    "@sap/xssec": "^3.2.13",
     "express": "^4",
-    "passport": "^0.6.0",
-    "hdb": "^0.19.0"
+    "hdb": "^0.19.0",
+    "passport": "^0.6.0"
   },
   "devDependencies": {
     "@sap/ux-specification": "^1.100.3",
@@ -51,13 +52,17 @@
     "app/mitigations"
   ],
   "cds": {
-        "requires": {
-            "db": {
-            "kind": "sql"
-            }
-        },
-        "hana": {
-            "deploy-format": "hdbtable"
-        }
+    "requires": {
+      "db": {
+        "kind": "sql"
+      },
+      "uaa": {
+        "kind": "xsuaa",
+        "credentials": {}
+      }
+    },
+    "hana": {
+      "deploy-format": "hdbtable"
     }
+  }
 }
